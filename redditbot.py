@@ -1,6 +1,7 @@
 import praw
 import config
 import time
+import os
 
 def bot_login():
     print('Logging in..')
@@ -11,14 +12,40 @@ def bot_login():
                 user_agent = "haHAA bot haHAA responder v 0.1")
     print("Logged in...")
     return r
-def run_bot(r):
-    for comment in r.subreddit('test').comments(limit=25):
-        if "haHAA" in comment.body:
-            print ("HaHAA string found"+ comment.id)
-            comment.reply('haHAA xD im 12 btw ;)')
-            print("replied to comment"+comment.id)
-    time.sleep(10)
+def run_bot(r,repliedComments):
+    
+    for comment in r.subreddit('test').comments(limit=25): 
+        if "haHAA" in comment.body and comment.id not in repliedComments and not comment.author == r.user.me():
+            print ("HaHAA string found: "+ comment.id)
+            
+            comment.reply('haHAA xD im 12 btw ;\n I am a bot...beep boop')
+            print("replied to comment: "+comment.id)
+            repliedComments.append(comment.id)
+
+            with open("repliedComments.txt", "a") as f:
+                f.write(comment.id + "\n")
+
+    print (repliedComments)
+    time.sleep(50)
     print("Sleeping...")
+
+
+def savedComments():
+    if not os.path.isfile("repliedComments.txt"):
+        repliedComments = []
+    else:
+        with open("repliedComments.txt", "r") as f:
+            repliedComments = f.read()
+            repliedComments = repliedComments.split("\r")
+            repliedComments = list(filter(None, repliedComments))
+
+    return repliedComments
+
+
+
 r = bot_login()
+repliedComments = savedComments()
+
 while True:
-    run_bot(r)
+    run_bot(r, repliedComments)
+print (repliedComments)
