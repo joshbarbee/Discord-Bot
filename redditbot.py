@@ -14,11 +14,12 @@ def bot_login():
     return r
 def run_bot(r,repliedComments):
     
-    for comment in r.subreddit('test').comments(limit=25): 
+    for comment in r.subreddit('all').stream.comments():
+        print(comment) 
         if "haHAA" in comment.body and comment.id not in repliedComments and not comment.author == r.user.me():
             print ("HaHAA string found: "+ comment.id)
             
-            comment.reply('haHAA xD im 12 btw ; \n\n\n\nI am a bot...beep boop | [Source code](https://github.com/joshbarbee/Reddit-bot)')
+            comment.reply('haHAA xD im 12 btw ;) \n\n\n\nI am a bot...beep boop | [Source code](https://github.com/joshbarbee/Reddit-bot)')
             print("replied to comment: "+comment.id)
             repliedComments.append(comment.id)
 
@@ -42,13 +43,6 @@ def savedComments():
     return repliedComments
 
 
-
-r = bot_login()
-repliedComments = savedComments()
-
-while True:
-    run_bot(r, repliedComments)
-print (repliedComments)
 
 r = bot_login()
 repliedComments = savedComments()
