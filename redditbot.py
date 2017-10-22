@@ -15,8 +15,9 @@ def bot_login():
 def run_bot(r,repliedComments):
     
     for comment in r.subreddit('all').stream.comments():
+    
         print(comment) 
-        if "haHAA" in comment.body and comment.id not in repliedComments and not comment.author == r.user.me():
+        if "haHAA" in comment.body and comment.id not in repliedComments and not comment.author == r.user.me() and len(comment.body)<10:
             print ("HaHAA string found: "+ comment.id)
             
             comment.reply('haHAA xD im 12 btw ;) \n\n\n\nI am a bot...beep boop | [Source code](https://github.com/joshbarbee/Reddit-bot)')
@@ -26,9 +27,9 @@ def run_bot(r,repliedComments):
             with open("repliedComments.txt", "a") as f:
                 f.write(comment.id + "\n")
         
-    print (repliedComments)
-    time.sleep(50)
-    print("Sleeping...")
+            print (repliedComments)
+            time.sleep(600)
+            print("Sleeping...")
 
 
 def savedComments():
