@@ -1,3 +1,4 @@
+package rara;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 import org.w3c.dom.Document;
@@ -23,7 +24,8 @@ public class blaaaa {
 
     try {
 
-	File fXmlFile = new File("/Users/Su/Documents/xmldates/201711"+currentday+".xml");
+	//File fXmlFile = new File("/Users/Su/Documents/xmldates/201711"+currentday+".xml");
+	File fXmlFile = new File("/Users/Su/Documents/calendar.xml");
 	DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 	DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 	Document doc = dBuilder.parse(fXmlFile);
@@ -38,8 +40,8 @@ public class blaaaa {
 
 	//System.out.println("----------------------------");
 
-	for (int temp = 0; temp < nList.getLength(); temp++) {
-
+	for (int temp = 0; temp < 1; temp++) {   //nList.getLength()
+		
 		Node nNode = nList.item(temp);
 		
 		//System.out.println("\nCurrent Element :" + nNode.getNodeName());
@@ -53,7 +55,6 @@ public class blaaaa {
 				System.out.println("Probably casting is no good");
 				continue;
 			}
-			String daka = eElement.getElementsByTagName("description").item(0).getTextContent()+ " ";
 			String date = eElement.getElementsByTagName("dtstart").item(0).getTextContent();
 	        String month = date.substring(4,6);
 	        
@@ -96,7 +97,9 @@ public class blaaaa {
 		        default: month = "Invalid month";
 	            	break;
 	        }
-	        String newdate = month + " "+ currentday + " " +date.substring(0, 4);
+			String daka = eElement.getElementsByTagName("description").item(0).getTextContent()+ " ";
+
+	        String newdate = month + " "+ date.substring(6, 8) + " " +date.substring(0, 4);
 			String schedule = daka.replaceAll("<br>", "\n").replaceAll("<p>", "").replaceAll("</p>", " ");
 	
 			System.out.println("Current Schedule: " + eElement.getElementsByTagName("summary").item(0).getTextContent());
@@ -113,4 +116,3 @@ public class blaaaa {
     }
   }
 }
-  
