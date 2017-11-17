@@ -30,7 +30,7 @@ def main():
                     print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n::::Scott::::")
                     print("-Got his bachelor's degree from UC in accounting")
                     print("-Currently a wealth advisor and CPA at Truepoint Wealth Counsel")
-                    print("-Born in Olmstead Falls, outside of Cleveland, and moved to Cincinnati for college where he met my mother at a Kiwanis event")
+                    print("-Born in Olmstead Falls, outside of Cleveland, and moved to Cincinnati for college")
                     print("-45 years old")
                     choice = input("")
                     if choice == True:
@@ -47,7 +47,7 @@ def main():
                         break           
                 elif familychoice == "4":
                     print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n::::The Devil Child(Keegan)::::")
-                    print("-Currently a 6th grader at St. James and he is majoring in the esteemed field of annoyance")
+                    print("-Currently a 6th grader at St. James and he is majoring in annoyance")
                     print("-May have been born on Mars, but probably Cincinnati")
                     print("-He is 11, acts 9, and looks 5")
                     print("-He's single and ready to mingle")
@@ -83,7 +83,7 @@ def main():
                 if choice == "1":
                     print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHere are some of my life changing good experiences:")
                     print("1. Winning my school's geography bee")
-                    print("2. Going on vacation with my grandfather to Hawaii")
+                    print("2. Going on vacation with my grandfather and rest of family to Hawaii")
                     print("3. Making it into the Xavier House program")
                     print("4. Traveling out west to places like Yellowstone, the Rockies, the Grand Canyon, and other places")
                     print("5. Learning how to program in Python & other languages")
