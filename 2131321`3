@@ -63,7 +63,7 @@ while True:
 
     @client.command(pass_context=True)
     async def commands(ctx):
-        await client.say("@%s My commands are:" % ctx.message.author)
+        await client.say("@%s My commands are:" % ctx.message.author.name)
         await client.say("`date`")
         await client.say("`connect`")
         await client.say("`queue`")
@@ -82,5 +82,9 @@ while True:
         for vid in soup.findAll(attrs={'class': 'yt-uix-tile-link'}):
                 link_list.append('https://www.youtube.com' + vid['href'])
         await client.say(link_list[0])
-    
+    @client.command(pass_context=True)
+    async def 8ball(ctx):
+        8balloptions = ["Not so sure", "42", "Most likely", "Absolutely not", "Outlook is good", "I see good things happening", "Never",
+"Negative", "Could be", "Unclear, ask again", "Yes", "No", "Possible, but not probable"]
+        await client.say("@%s. The magic 8 ball says "+random.choice(8balloptions) %ctx.message.author.name)
     client.run("Mzg0NTM2MDgzOTg5Mzk3NTA3.DP0PkA.hEJTjhexXWTxC5jJ8rs31BVGYbI")
