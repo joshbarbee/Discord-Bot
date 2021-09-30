@@ -87,4 +87,4 @@ while True:
         8balloptions = ["Not so sure", "42", "Most likely", "Absolutely not", "Outlook is good", "I see good things happening", "Never",
 "Negative", "Could be", "Unclear, ask again", "Yes", "No", "Possible, but not probable"]
         await client.say("@%s. The magic 8 ball says "+random.choice(8balloptions) %ctx.message.author.name)
-    client.run("Mzg0NTM2MDgzOTg5Mzk3NTA3.DP0PkA.hEJTjhexXWTxC5jJ8rs31BVGYbI")
+    client.run("")
